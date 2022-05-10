@@ -12,4 +12,8 @@ import CoreData
 @objc(Person)
 public class Person: NSManagedObject {
     // this is where you want to add more info (business logic etc.)
+    
+    func test() {
+        
+    }
 }

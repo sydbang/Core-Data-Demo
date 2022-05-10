@@ -15,6 +15,7 @@
 		3B3BB72B2829F5DA008D2BCF /* Core_Data_Demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B3BB7292829F5DA008D2BCF /* Core_Data_Demo.xcdatamodeld */; };
 		3B3BB7352829FA25008D2BCF /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3BB7332829FA25008D2BCF /* Person+CoreDataClass.swift */; };
 		3B3BB7362829FA25008D2BCF /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3BB7342829FA25008D2BCF /* Person+CoreDataProperties.swift */; };
+		3B3BB73B282A5E80008D2BCF /* TestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3BB73A282A5E80008D2BCF /* TestFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3B3BB72C2829F5DA008D2BCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B3BB7332829FA25008D2BCF /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3B3BB7342829FA25008D2BCF /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3B3BB73A282A5E80008D2BCF /* TestFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +62,15 @@
 		3B3BB71D2829F5CE008D2BCF /* Core Data Demo */ = {
 			isa = PBXGroup;
 			children = (
-				3B3BB7382829FAFC008D2BCF /* Model */,
 				3B3BB71E2829F5CE008D2BCF /* Core_Data_DemoApp.swift */,
 				3B3BB7202829F5CE008D2BCF /* ContentView.swift */,
+				3B3BB7382829FAFC008D2BCF /* Model */,
 				3B3BB7222829F5DA008D2BCF /* Assets.xcassets */,
 				3B3BB7272829F5DA008D2BCF /* Persistence.swift */,
 				3B3BB72C2829F5DA008D2BCF /* Info.plist */,
 				3B3BB7292829F5DA008D2BCF /* Core_Data_Demo.xcdatamodeld */,
 				3B3BB7242829F5DA008D2BCF /* Preview Content */,
+				3B3BB73A282A5E80008D2BCF /* TestFile.swift */,
 			);
 			path = "Core Data Demo";
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				3B3BB7282829F5DA008D2BCF /* Persistence.swift in Sources */,
 				3B3BB72B2829F5DA008D2BCF /* Core_Data_Demo.xcdatamodeld in Sources */,
 				3B3BB7362829FA25008D2BCF /* Person+CoreDataProperties.swift in Sources */,
+				3B3BB73B282A5E80008D2BCF /* TestFile.swift in Sources */,
 				3B3BB7352829FA25008D2BCF /* Person+CoreDataClass.swift in Sources */,
 				3B3BB7212829F5CE008D2BCF /* ContentView.swift in Sources */,
 				3B3BB71F2829F5CE008D2BCF /* Core_Data_DemoApp.swift in Sources */,
