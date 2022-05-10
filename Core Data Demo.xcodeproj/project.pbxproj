@@ -13,6 +13,8 @@
 		3B3BB7262829F5DA008D2BCF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B3BB7252829F5DA008D2BCF /* Preview Assets.xcassets */; };
 		3B3BB7282829F5DA008D2BCF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3BB7272829F5DA008D2BCF /* Persistence.swift */; };
 		3B3BB72B2829F5DA008D2BCF /* Core_Data_Demo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B3BB7292829F5DA008D2BCF /* Core_Data_Demo.xcdatamodeld */; };
+		3B3BB7352829FA25008D2BCF /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3BB7332829FA25008D2BCF /* Person+CoreDataClass.swift */; };
+		3B3BB7362829FA25008D2BCF /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3BB7342829FA25008D2BCF /* Person+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3B3BB7272829F5DA008D2BCF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		3B3BB72A2829F5DA008D2BCF /* Core_Data_Demo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Core_Data_Demo.xcdatamodel; sourceTree = "<group>"; };
 		3B3BB72C2829F5DA008D2BCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B3BB7332829FA25008D2BCF /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3B3BB7342829FA25008D2BCF /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		3B3BB71D2829F5CE008D2BCF /* Core Data Demo */ = {
 			isa = PBXGroup;
 			children = (
+				3B3BB7382829FAFC008D2BCF /* Model */,
 				3B3BB71E2829F5CE008D2BCF /* Core_Data_DemoApp.swift */,
 				3B3BB7202829F5CE008D2BCF /* ContentView.swift */,
 				3B3BB7222829F5DA008D2BCF /* Assets.xcassets */,
@@ -73,6 +78,15 @@
 				3B3BB7252829F5DA008D2BCF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3B3BB7382829FAFC008D2BCF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B3BB7332829FA25008D2BCF /* Person+CoreDataClass.swift */,
+				3B3BB7342829FA25008D2BCF /* Person+CoreDataProperties.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +160,8 @@
 			files = (
 				3B3BB7282829F5DA008D2BCF /* Persistence.swift in Sources */,
 				3B3BB72B2829F5DA008D2BCF /* Core_Data_Demo.xcdatamodeld in Sources */,
+				3B3BB7362829FA25008D2BCF /* Person+CoreDataProperties.swift in Sources */,
+				3B3BB7352829FA25008D2BCF /* Person+CoreDataClass.swift in Sources */,
 				3B3BB7212829F5CE008D2BCF /* ContentView.swift in Sources */,
 				3B3BB71F2829F5CE008D2BCF /* Core_Data_DemoApp.swift in Sources */,
 			);
