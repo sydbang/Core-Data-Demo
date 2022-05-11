@@ -11,7 +11,8 @@ import CoreData
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @FetchRequest(sortDescriptors: []) var people: FetchedResults<Person>
+    // using property wrapper fetch request
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "age", ascending: true)]) var people: FetchedResults<Person>
 
     var body: some View {
         
@@ -22,11 +23,13 @@ struct ContentView: View {
             
             List {
                 ForEach(people) { person in
-                    Text(person.name ?? "No name")
+                    Text("\(person.name ?? "No name") & age : \(person.stringage ?? "")")
                         .onTapGesture {
+                            // Update
                             //person.name = "Joe"
                             //try! viewContext.save()
                             
+                            // Delete
                             viewContext.delete(person)
                             try! viewContext.save()
                         }
@@ -56,7 +59,8 @@ struct ContentView: View {
     private func addItem() {
         
         let p = Person(context: viewContext) // you are creating a new person object and you are specifying that you want this data to be stored in core data
-        p.age = 20
+        p.age = Int64.random(in: 0...20)
+        p.stringage = String(p.age)
         p.name = "Tom"
         
         // to actually save
