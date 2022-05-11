@@ -20,6 +20,7 @@ struct ContentView: View {
     @State var people = [Person]()
     @State var filterByText = ""
     
+    @FetchRequest(sortDescriptors: []) var families: FetchedResults<Family>
 
     var body: some View {
         
@@ -37,18 +38,25 @@ struct ContentView: View {
                 .padding()
             
             List {
-                ForEach(people) { person in
-                    Text("\(person.name ?? "No name") & age : \(person.stringage ?? "")")
-                        .onTapGesture {
-                            // Update
-                            person.name = "Joe"
-                            try! viewContext.save()
-                            
-                            // Delete
-                            //viewContext.delete(person)
-                            //try! viewContext.save()
-                        }
+                
+                ForEach(families) { family in
+                    Text("\(family.name ?? "No Fam"), member count: \(family.members?.count ?? 0)")
+                    
                 }
+                
+                
+//                ForEach(people) { person in
+//                    Text("\(person.name ?? "No name") & age : \(person.stringage ?? "")")
+//                        .onTapGesture {
+//                            // Update
+//                            person.name = "Joe"
+//                            try! viewContext.save()
+//
+//                            // Delete
+//                            //viewContext.delete(person)
+//                            //try! viewContext.save()
+//                        }
+//                }
             }
         }
         .onChange(of: filterByText, perform: { value in
@@ -94,12 +102,34 @@ struct ContentView: View {
         }
     }
     
+    
+//    func sampleCode() {
+//        let f = Family(context: viewContext)
+//        f.name = "Collins Family"
+//
+//        let p = Person(context: viewContext)
+//        p.family = f
+//        // OR
+//        // f.addToMembers(p)
+//
+//        // Save
+//        try! viewContext.save()
+//    }
+//
     private func addItem() {
         
-        let p = Person(context: viewContext) // you are creating a new person object and you are specifying that you want this data to be stored in core data
-        p.age = Int64.random(in: 0...20)
-        p.stringage = String(p.age)
-        p.name = "Tom"
+        let family = Family(context: viewContext)
+        family.name = String("Family #\(Int.random(in: 0...20))")
+        
+        let numberOfMembers = Int.random(in:0...5)
+        
+        for _ in 0...numberOfMembers {
+            let p = Person(context: viewContext) // you are creating a new person object and you are specifying that you want this data to be stored in core data
+            p.age = Int64.random(in: 0...20)
+            p.stringage = String(p.age)
+            p.name = "Tom"
+            p.family = family
+        }
         
         // to actually save
         do {
