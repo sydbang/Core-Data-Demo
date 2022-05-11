@@ -12,7 +12,14 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     // using property wrapper fetch request
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "age", ascending: true)]) var people: FetchedResults<Person>
+    
+//    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true), NSSortDescriptor(key: "age", ascending: true)],
+//                  predicate: NSPredicate(format: "name contains[c] 'joe'"))
+//    var people: FetchedResults<Person>
+    
+    @State var people = [Person]()
+    @State var filterByText = ""
+    
 
     var body: some View {
         
@@ -21,21 +28,32 @@ struct ContentView: View {
                 Label("Add Item", systemImage: "plus")
             }
             
+            TextField("Filter Text", text: $filterByText)
+//            { _ in
+//                // Fetch new data
+//                fetchData()
+//            } // onEnditingChanged
+                .border(Color.black, width: 1)
+                .padding()
+            
             List {
                 ForEach(people) { person in
                     Text("\(person.name ?? "No name") & age : \(person.stringage ?? "")")
                         .onTapGesture {
                             // Update
-                            //person.name = "Joe"
-                            //try! viewContext.save()
+                            person.name = "Joe"
+                            try! viewContext.save()
                             
                             // Delete
-                            viewContext.delete(person)
-                            try! viewContext.save()
+                            //viewContext.delete(person)
+                            //try! viewContext.save()
                         }
                 }
             }
         }
+        .onChange(of: filterByText, perform: { value in
+            fetchData()
+        }) // to fetch data on every character pressed
         
         
         
@@ -56,6 +74,26 @@ struct ContentView: View {
 //        }
     }
 
+    func fetchData() {
+        // Create fetch request
+        let request = Person.personFetchRequest()
+        
+        // Set sort descriptors and predicates
+        request.sortDescriptors = [NSSortDescriptor(key: "age", ascending: true)]
+        request.predicate = NSPredicate(format: "name contains %@", filterByText)
+        
+        // Execute the fetch
+        DispatchQueue.main.async {
+            do {
+                let results = try viewContext.fetch(request)
+                // Update the state property
+                self.people = results
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     private func addItem() {
         
         let p = Person(context: viewContext) // you are creating a new person object and you are specifying that you want this data to be stored in core data
